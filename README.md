@@ -1,4 +1,4 @@
-Blog template similar to [nexusmods](www.nexusmods.com)
+Blog template similar to [nexusmods](https://www.nexusmods.com)
 - background image / maybe 2, for side panels
 - top bar with title and seal, navbar below, sticky, maybe shrinks when scrolling down
 - main content panel in center, blog style
