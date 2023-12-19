@@ -1,14 +1,18 @@
-import Link from "next/link";
+import fs from "fs";
+import Hero from "@/components/Hero";
+import { getPostDataAsHTML } from "@/lib/posts";
+import path from "path";
+import ReactMarkdown from "react-markdown";
 
-export default function Home() {
+export default async function Home() {
+  const filelocation = path.join(process.cwd(), "/posts/home.md");
+  const postMarkdown = fs.readFileSync(filelocation, "utf-8");
   return (
     <>
-      <header>
-        <h1 className="">Herzlich willkommen!</h1>
-      </header>
-      <main>
-        <Link href="/about" className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none">Über uns</Link>
-      </main>
+      <Hero />
+      <article className="prose">
+        <ReactMarkdown>{postMarkdown}</ReactMarkdown>
+      </article>
     </>
-  )
+  );
 }
