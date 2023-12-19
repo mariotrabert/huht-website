@@ -6,103 +6,152 @@ export default function About() {
       <header className="flex justify-between items-center mb-4">
         <h1 className="text-2xl">Über den Zwinger von der Huht</h1>
 
-        <Link
-          className="border border-slate-300 text-slate-300 px-2 py-1 rounded hover:bg-slate-700 focus-within:bg-slate-700 outline-none"
-          href="/"
-        >
-          Zurück zur Startseite
-        </Link>
+        <button className="btn">
+          <Link href="/">Zurück zur Startseite</Link>
+        </button>
       </header>
       <main>
-        <p>
-          Schon seit Kindesbeinen an mit der Jagd verbunden, stand für mich
-          immer fest: zur Jagd gehört ein Hund ! Nach einigen Überlegungen kam
-          ich zu dem Schluss, es sollte ein nicht zu großer aber auch keiner von
-          den kleinen Hunden sein. Da ich schon früh Kontakt mit Wachtelhunden
-          hatte, fiel die Wahl dann nicht wirklich schwer.{" "}
-        </p>
-
-        <p>
-          Ja und so kaufte ich 1988 meinen ersten eigenen Wachtelhund "Nija" .
-          Diesen führte ich auch durch bis zur GP und wurde auch gleich
-          Richteranwärter. 1997 wurde ich dann zum Richter ernannt. Ich führte
-          dann mit Nija auf ihre alten Tage auch noch eine
-          Verbandsschweißprüfung, welche wir mit SW I bestanden . (um auch noch
-          Schweißrichter werden zu können) .Zu diesem Zeitpunkt hatte ich schon
-          meine zweite Hündin “Diana vom Schwenk”. Mit ihr gründete ich auch
-          meinen Zwinger “von der Huht”. Der H- Wurf und der I- Wurf kamen aus
-          Diana.{" "}
-        </p>
-
-        <p>
-          Aus dem I-Wurf habe ich mir dann "Isa" behalten. Aus ihr kamen der
-          J-Wurf (bei diesem Wurf gingen leider alle Welpen in den ersten drei
-          Tagen ein) und der K-Wurf. Aus K-Wurf behielt ich mir den Rüden Karl
-          (Rufname Karo). Im Januar 2009 verschwand meine Hündin Isa auf einer
-          Bewegungsjagd spurlos. Isa hatte einen kurz zuvor von mir beschossenen
-          Überläufer gestellt, so dass ich ihn abfangen konnte . Bis zum Ende
-          der Jagd war noch etwa eine Stunde Zeit und ich schickte sie noch
-          einmal. Leider sah ich sie aber nie wieder. Alle Suchaktionen blieben
-          erfolglos.
-        </p>
-        <p>
-          Anfang Juli 2009 holte ich mir darauf hin meine Olina (Olpe vom
-          Leinawald). Die junge Hündin lebte sich schnell bei uns ein. Sie wurde
-          sofort freudig aufgenommen und hat sich sehr gut entwickelt. Auf Olpe
-          ruhen jetzt meine weiteren züchterischen Hoffnungen. Der erste Wurf
-          mit ihr ist im April 2011 geplant.
-        </p>
-        <p>
-          Das Jagdjahr 2010/2011 stand für mich und meine Hunde unter keinem
-          gutem Stern.
-        </p>
-        <p>
-          Gleich zu Beginn der Stöberjagd Saison machte Olina ihre erste
-          schmerzhafte Erfahrung mit Schwarzwild, wovon ich (Ohren) Zeuge wurde.
-          Nachdem sie gleich zu Jagdbeginn einen Überläufer auf die Läufe
-          brachte, der ca. 40m neben unserem Stand in einer abgebrochenen
-          Fichtenkrone lag, hörte ich sie eine halbe Stunde später neben mir in
-          einer Naturverjüngung heftig Laut geben. Dann hörte ich ein Schwein
-          blasen und heftiges Gerangel, kurz danach klagte der Hund. Noch bevor
-          ich den Rand der Dickung erreichte, kam mir Olina entgegen. Zum Glück
-          hatte sie keine ernstere Verletzung davon getragen. Aber an diesem Tag
-          konnte ich sie nicht mehr "überreden" noch mal zu jagen. In den
-          weiteren Jagden hat sie zum Glück wieder große Freude am Jagen,
-          insbesondere auch am Schwarzwild, gezeigt.
-        </p>
-        <p>
-          Bei der nächsten Jagd hatte mein Rüde Karl nicht so viel Glück, ihm
-          hat eine Sau den Hinterlauf gebrochen. Damit war für ihn die Saison
-          schon Anfang November vorbei.
-        </p>
-        <p>
-          Anfang Januar, an einem Samstag Morgen, wurde ich zur Entenjagd
-          eingeladen. Da Karl inzwischen wieder genesen war, wurde das sein
-          erster Einsatz nach der Zwangspause. Trotz des Hochwassers kamen die
-          Hunde gut zurecht. Im Gegenteil durch den hohen Wasserstand mussten
-          sie mit den Enten nicht erst das Steilufer hoch "klettern" und alles
-          klappte sehr gut, wir hatten eine ansehnliche Strecke von 44 Enten.
-        </p>
-        <p>
-          Am Sonntagabend benahm sich Karl schon anders als noch am Morgen, aber
-          ich konnte es noch nicht deuten. Montag morgen konnte er kaum noch
-          laufen und trotz aller Tierärztlichen Bemühungen war er bereits am
-          Montag Mittag tot. Die durchgeführte Sektion in der Uniklinik ergab
-          das Karl einen Milzriß auf Grund eines Traumas hatte und innerlich
-          verblutet ist. Die wahrscheinlichsten Erklärungen sind, dass er bei
-          der Entenjagd entweder beim Sprung ins Wasser auf einen durch das
-          Hochwasser verdeckten Baumstumpf geprallt ist oder dass ihn ein Stück
-          Treibgut gerammt hat. Andere "Gelegenheiten" sich so zu verletzen
-          hatte er in diesen Tagen nicht.
-        </p>
-        <p>
-          So habe ich innerhalb von zwei Jahren zwei jagdliche "Leistungsträger"
-          meiner Zucht verloren . Alle Hoffnungen ruhen nun auf Olpe. So, wie
-          sie sich bis jetzt zeigt, wird sie den Beiden in nichts nachstehen.
-          Sie macht ihre Sache sehr gut. Besonders beeindruckend ist ihr enormer
-          Wille, vor allem auf der Krank-Fährte.
-        </p>
+        
       </main>
+
+      <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
+        <li>
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-start md:text-end mb-10">
+            <time className="font-mono italic">1984</time>
+            <div className="text-lg font-black">First Macintosh computer</div>
+            The Apple Macintosh—later rebranded as the Macintosh 128K—is the
+            original Apple Macintosh personal computer. It played a pivotal role
+            in establishing desktop publishing as a general office function. The
+            motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were
+            housed in a beige case with integrated carrying handle; it came with
+            a keyboard and single-button mouse.
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-end mb-10">
+            <time className="font-mono italic">1998</time>
+            <div className="text-lg font-black">iMac</div>
+            iMac is a family of all-in-one Mac desktop computers designed and
+            built by Apple Inc. It has been the primary part of Apple's consumer
+            desktop offerings since its debut in August 1998, and has evolved
+            through seven distinct forms
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-start md:text-end mb-10">
+            <time className="font-mono italic">2001</time>
+            <div className="text-lg font-black">iPod</div>
+            The iPod is a discontinued series of portable media players and
+            multi-purpose mobile devices designed and marketed by Apple Inc. The
+            first version was released on October 23, 2001, about 8+1⁄2 months
+            after the Macintosh version of iTunes was released. Apple sold an
+            estimated 450 million iPod products as of 2022. Apple discontinued
+            the iPod product line on May 10, 2022. At over 20 years, the iPod
+            brand is the oldest to be discontinued by Apple
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-end mb-10">
+            <time className="font-mono italic">2007</time>
+            <div className="text-lg font-black">iPhone</div>
+            iPhone is a line of smartphones produced by Apple Inc. that use
+            Apple's own iOS mobile operating system. The first-generation iPhone
+            was announced by then-Apple CEO Steve Jobs on January 9, 2007. Since
+            then, Apple has annually released new iPhone models and iOS updates.
+            As of November 1, 2018, more than 2.2 billion iPhones had been sold.
+            As of 2022, the iPhone accounts for 15.6% of global smartphone
+            market share
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          <div className="timeline-middle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="timeline-start md:text-end mb-10">
+            <time className="font-mono italic">2015</time>
+            <div className="text-lg font-black">Apple Watch</div>
+            The Apple Watch is a line of smartwatches produced by Apple Inc. It
+            incorporates fitness tracking, health-oriented capabilities, and
+            wireless telecommunication, and integrates with iOS and other Apple
+            products and services
+          </div>
+        </li>
+      </ul>
     </>
   );
 }
