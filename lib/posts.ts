@@ -1,20 +1,94 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
+import { remark } from "remark";
+import html from "remark-html";
 
-const postsDirectory = path.join(process.cwd(), 'posts');
-console.log('postsDirectory: ' + postsDirectory)
+// declare posts directory path
+const postsDirectory = path.join(process.cwd(), "posts"); // process.cwd() returns the absolute path of the current working directory
 
-export type BlogPostProps = {
-  id: string
-  date: string
+/*
+  Returns an array that looks like this:
+  [
+    {
+      slug: 'ssg-ssr',
+      title: 'When to Use Static Generation v.s. Server-side Rendering',
+      date: '2020-01-01'
+    },
+    {
+      slug: 'pre-rendering',
+      title: 'Two Forms of Pre-rendering',
+      date: '2020-01-02'
+    }
+  ]
+*/
+
+export function getSortedPostsData() {
+  const fileNames = fs.readdirSync(postsDirectory); // [ 'pre-rendering.md', 'ssg-ssr.md' ]
+  const allPostsData = fileNames.map((filename) => {
+    const slug = filename.replace(/\.md$/, ""); // slug = 'pre-rendering', 'ssg-ssr'
+
+    // Read markdown file as string
+    const fullPath = path.join(postsDirectory, filename);
+    const fileContents = fs.readFileSync(fullPath, "utf8"); // .md string content
+
+    // Use gray-matter to parse the post metadata section
+    const matterResult = matter(fileContents);
+
+    // Combine the data with the slug
+    return {
+      slug,
+      ...(matterResult.data as { date: string; title: string }),
+    };
+  });
+
+  // Sort posts by date and return
+  return allPostsData.sort((a, b) => {
+    if (a.date < b.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
 }
 
-export async function getPostData(id: BlogPostProps) {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+// ------------------------------------------------
+// GET THE SLUGS OF ALL POSTS FOR THE DYNAMIC ROUTING
+/*
+  Returns an array that looks like this:
+  [
+    {
+      params: {
+        slug: 'ssg-ssr'
+      }
+    },
+    {
+      params: {
+        slug: 'pre-rendering'
+      }
+    }
+  ]
+  */
+
+export function getAllPostSlugs() {
+  const fileNames = fs.readdirSync(postsDirectory);
+
+  return fileNames.map((fileName) => {
+    return {
+      params: {
+        slug: fileName.replace(/\.md$/, ""),
+      },
+    };
+  });
+}
+
+// The returned array must have the params key otherwise `getStaticPaths` will fail
+
+// --------------------------------
+// GET THE DATA OF A SINGLE POST FROM THE SLUG
+export async function getPostData(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
@@ -25,42 +99,10 @@ export async function getPostData(id: BlogPostProps) {
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  // Combine the data with the id and contentHtml
+  // Combine the data with the slug
   return {
-    id,
+    slug,
     contentHtml,
-    ...matterResult.data,
+    ...(matterResult.data as { date: string; title: string }),
   };
 }
-
-// const postsDirectory = path.join(process.cwd(), 'posts');
-
-// export function getSortedPostsData() {
-//   // Get file names under /posts
-//   const fileNames = fs.readdirSync(postsDirectory);
-//   const allPostsData = fileNames.map((fileName) => {
-//     // Remove ".md" from file name to get id
-//     const id = fileName.replace(/\.md$/, '');
-
-//     // Read markdown file as string
-//     const fullPath = path.join(postsDirectory, fileName);
-//     const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-//     // Use gray-matter to parse the post metadata section
-//     const matterResult = matter(fileContents);
-
-//     // Combine the data with the id
-//     return {
-//       id,
-//       ...matterResult.data,
-//     };
-//   });
-//   // Sort posts by date
-//   return allPostsData.sort((a, b) => {
-//     if (a.date < b.date) {
-//       return 1;
-//     } else {
-//       return -1;
-//     }
-//   });
-// }
