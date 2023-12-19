@@ -1,4 +1,4 @@
-import { getAllPostSlugs, getPostData } from '@/lib/posts'
+import { getAllPostSlugs, getPostDataAsHTML } from '@/lib/posts'
 
 type Props = {
   params: { slug: string }
@@ -11,7 +11,7 @@ type PostData = {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const postData: PostData = await getPostData(params.slug)
+  const postData: PostData = await getPostDataAsHTML(params.slug)
   console.log(params.slug)
   return {
     title: postData.title,
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
 
 // -< Post >-
 export default async function Post({ params }: Props) {
-  const postData: PostData = await getPostData(params.slug)
+  const postData: PostData = await getPostDataAsHTML(params.slug)
 
   return (
     <>

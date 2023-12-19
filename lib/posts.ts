@@ -86,7 +86,7 @@ export function getAllPostSlugs() {
 
 // --------------------------------
 // GET THE DATA OF A SINGLE POST FROM THE SLUG
-export async function getPostData(slug: string) {
+export async function getPostDataAsHTML(slug: string) {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -103,6 +103,23 @@ export async function getPostData(slug: string) {
   return {
     slug,
     contentHtml,
+    ...(matterResult.data as { date: string; title: string }),
+  };
+}
+
+// --------------------------------
+// GET THE DATA OF A SINGLE POST FROM THE SLUG
+export async function getPostData(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  // Use gray-matter to parse the post metadata section
+  const matterResult = matter(fileContents);
+
+  // Combine the data with the slug
+  return {
+    slug,
+    fileContents,
     ...(matterResult.data as { date: string; title: string }),
   };
 }
