@@ -2,9 +2,9 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { NavBar } from "@/components/NavBar";
+import NavBar from "@/components/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "DW-Zwinger von der Huht",
@@ -17,13 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-zinc-200 text-black`}>
-        <NavBar></NavBar>
+    <html data-theme="huhtTheme">
+      <body className={inter.variable}>
+        <NavBar />
         <div id="content-wrapper" className="flex flex-col min-h-screen">
-          <div className="flex-grow px-12 py-5 sm:px-24 md:px-30 lg:px-40 lg:py-10">{children}</div>
+          <div className="flex-grow px-12 py-5 sm:px-24 md:px-30 lg:px-40 lg:py-10">
+            {children}
+          </div>
         </div>
-        <Footer></Footer>
+        <Footer />
       </body>
     </html>
   );
