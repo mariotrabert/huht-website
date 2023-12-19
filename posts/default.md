@@ -1,4 +1,5 @@
 ---
+id: 0
 title: 'Default Blog Post'
 date: '2023-08-24'
 ---
