@@ -9,7 +9,7 @@ import classnames from "classnames";
 const NavBar = () => {
   return (
     
-      <nav className="navbar bg-primary text-primary-content lg:sticky lg:top-0">
+      <nav className="navbar bg-primary text-primary-content z-[1] lg:sticky lg:top-0">
         <div className="navbar-start">
           {/* TODO change to drawer */}
           <div className="dropdown">
