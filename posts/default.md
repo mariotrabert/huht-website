@@ -1,5 +1,5 @@
 ---
-id: 0
+id: 1
 title: 'Default Blog Post'
 date: '2023-08-24'
 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare massa eget egestas purus viverra accumsan. In massa tempor nec feugiat nisl.'
