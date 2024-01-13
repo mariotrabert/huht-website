@@ -6,6 +6,7 @@ import html from "remark-html";
 
 // declare posts directory path
 const postsDirectory = path.join(process.cwd(), "posts"); // process.cwd() returns the absolute path of the current working directory
+const workingDirectory = process.cwd()
 
 /*
   Returns an array that looks like this:
@@ -38,7 +39,7 @@ export function getSortedPostsData() {
     // Combine the data with the slug
     return {
       slug,
-      ...(matterResult.data as { date: string; title: string }),
+      ...(matterResult.data as { date: string; title: string; description: string }),
     };
   });
 
@@ -121,5 +122,31 @@ export async function getPostData(slug: string) {
     slug,
     fileContents,
     ...(matterResult.data as { date: string; title: string }),
+  };
+}
+
+// --------------------------------
+// GET THE DATA OF A SINGLE POST FROM THE FILENAME
+// Return an object with file name, metadata and file content
+export async function getPageData(relativeFilePath: string) {
+  const fullPath = path.join(workingDirectory, relativeFilePath);
+  const fileContent = fs.readFileSync(fullPath, "utf8");
+  
+  // Get the filename without extension
+  const extension = path.extname(fullPath)
+  const fullFileName = path.basename(fullPath)
+  const fileName = fullFileName.replace(extension, '')
+
+  // Use gray-matter to parse the metadata and markdown content
+  const matterResult = matter(fileContent);
+  
+  const metadata = matterResult.data
+  const markdownContent = matterResult.content
+
+  // Combine the data with the filename
+  return {
+    fileName,
+    markdownContent,
+    ...(metadata as { date: string; title: string, description: string }),
   };
 }

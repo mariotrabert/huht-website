@@ -1,18 +1,15 @@
-import fs from "fs";
 import Hero from "@/components/Hero";
-import { getPostDataAsHTML } from "@/lib/posts";
-import path from "path";
+import { getPageData } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 
 export default async function Home() {
-  const filelocation = path.join(process.cwd(), "/posts/home.md");
-  const postMarkdown = fs.readFileSync(filelocation, "utf-8");
+  const markdownContent = (await getPageData('/app/home.md')).markdownContent
   return (
     <>
       <Hero />
-      <article className="prose">
-        <ReactMarkdown>{postMarkdown}</ReactMarkdown>
-      </article>
+      <main className="prose">
+        <ReactMarkdown>{markdownContent}</ReactMarkdown>
+      </main>
     </>
   );
 }
