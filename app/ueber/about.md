@@ -1,5 +1,4 @@
 ---
-id: 3
 title: 'Über den Zwinger von der Huht'
 date: '2023-08-24'
 description: 'Hier finden Sie mehr Informationen über den Zwinger von der Huht'

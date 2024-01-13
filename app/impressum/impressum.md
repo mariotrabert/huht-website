@@ -1,3 +1,9 @@
+---
+description: 'abc'
+date: '2024-01-01'
+title: 'Impressum'
+---
+
 ## Inhaber
 
 Uwe Mannel  
@@ -18,3 +24,4 @@ Mobil: 0151 42833229
 
 
 ## Bildnachweise
+WIP

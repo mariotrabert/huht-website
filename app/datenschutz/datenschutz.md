@@ -1,3 +1,9 @@
+---
+date: '2024-01-01'
+title: 'Datenschutzhinweise'
+description: 'Datenschutz- und weitere rechtliche Hinweise'
+---
+
 ## Allgemeiner Hinweis und Pflichtinformationen
 
 ### Benennung der verantwortlichen Stelle
