@@ -6,10 +6,12 @@
   h1 {
     @apply text-4xl;
     @apply text-black;
+    @apply font-extrabold
   }
 
   h2 {
     @apply text-3xl;
+    @apply font-bold;
   }
 
   h3 {
