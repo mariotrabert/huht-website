@@ -6,6 +6,7 @@ type AllPostsData = {
   date: string
   title: string
   slug: string
+  description: string
 }[]
 
 export default function BlogPage() {
@@ -14,13 +15,14 @@ export default function BlogPage() {
   return (
     <>
       <section>
-        <h2>Blog</h2>
+        <h1>Blog</h1>
         <ul>
-          {allPostsData.map(({ slug, date, title }) => (
+          {allPostsData.map(({ slug, date, title, description }) => (
             <li key={slug}>
               <div className='font-medium mb-1 mt-5'>
                 <Link href={`/blog/${slug}`}>{title}</Link>
               </div>
+              <p>{description}</p>
               <small className='text-gray-500 font-medium'>
                 <div>{date}</div>
               </small>
