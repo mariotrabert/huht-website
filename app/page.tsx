@@ -1,4 +1,4 @@
-import Hero from "@/components/Hero";
+import Hero from "@/app/components/Hero";
 import { getPageData } from "@/lib/posts";
 import ReactMarkdown from "react-markdown";
 
