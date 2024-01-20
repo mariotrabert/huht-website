@@ -1,9 +1,8 @@
-import Footer from "@/app/components/Footer";
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import NavBar from "@/app/components/NavBar";
 import AuthProvider from "./api/auth/Provider";
+import SideBar from "./components/SideBar";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -21,13 +20,7 @@ export default function RootLayout({
     <html data-theme="huhtTheme">
       <body className={inter.variable}>
         <AuthProvider>
-          <NavBar />
-          <div id="content-wrapper" className="flex flex-col min-h-screen">
-            <div className="flex-grow px-12 py-5 sm:px-24 md:px-30 lg:px-40 lg:py-10">
-              {children}
-            </div>
-          </div>
-          <Footer />
+          <SideBar>{children}</SideBar>
         </AuthProvider>
       </body>
     </html>
