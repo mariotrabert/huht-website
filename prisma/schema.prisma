@@ -13,12 +13,13 @@ datasource db {
 model Post {
   id          Int      @id @default(autoincrement())
   title       String   @db.VarChar(255)
-  description String?  @db.Text
-  content     String?  @db.MediumText
+  description String   @db.Text
+  content     String   @db.MediumText
   date        DateTime
   published   Boolean  @default(false)
-  author      User     @relation(fields: [authorId], references: [id])
   authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  
 }
 
 model Account {
