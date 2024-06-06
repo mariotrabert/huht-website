@@ -1,3 +1,5 @@
+import '@radix-ui/themes/styles.css';
+import { Theme } from "@radix-ui/themes";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AuthProvider from "./api/auth/Provider";
@@ -19,9 +21,11 @@ export default function RootLayout({
   return (
     <html data-theme="huhtTheme">
       <body className={inter.variable}>
-        <AuthProvider>
-          <SideBar>{children}</SideBar>
-        </AuthProvider>
+        <Theme>
+          <AuthProvider>
+            <SideBar>{children}</SideBar>
+          </AuthProvider>
+        </Theme>
       </body>
     </html>
   );
