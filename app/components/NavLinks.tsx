@@ -1,13 +1,14 @@
-'use client'
+"use client";
 
+import { Flex, Link as StyledLink } from "@radix-ui/themes";
 import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface Props {
-  placed_in: "sidebar" | "navbar"
+  placedIn: "sidebar" | "navbar";
 }
-const NavLinks = ({ placed_in }: { placed_in: "sidebar" | "navbar" | ""}) => {
+const NavLinks = ({ placedIn }: { placedIn: "sidebar" | "navbar" | "" }) => {
   const currentPath = usePathname();
   const links = [
     { label: "Home", href: "/" },
@@ -17,22 +18,27 @@ const NavLinks = ({ placed_in }: { placed_in: "sidebar" | "navbar" | ""}) => {
     { label: "Zucht", href: "/zucht" },
   ];
   return (
-    // menu menu-horizontal px-1
-    <ul className={classNames("menu", {"menu-vertical": placed_in === "sidebar",  "lg:menu-horizontal lg:space-x-6": placed_in === "navbar",})}>
+    <Flex
+      gap="5"
+      direction="row"
+      flexGrow="1"
+      flexShrink="1"
+      flexBasis="auto"
+      align="center"
+    >
       {links.map((link) => (
-        <li key={link.href}>
-          <Link
-            className={classNames({
-              "text-xl nav-link": true,
-              "!text-slate-100 !font-bold": link.href === currentPath,
-            })}
-            href={link.href}
-          >
-            {link.label}
-          </Link>
-        </li>
+        <Link
+          key={link.href}
+          className={classNames({
+            "text-xl nav-link": true,
+            "!text-slate-100 !font-bold": link.href === currentPath,
+          })}
+          href={link.href}
+        >
+          <StyledLink>{link.label}</StyledLink>
+        </Link>
       ))}
-    </ul>
+    </Flex>
   );
 };
 

@@ -1,4 +1,3 @@
-import AuthButton from "./AuthButton";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import NavLinks from "./NavLinks";
@@ -25,10 +24,7 @@ const SideBar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         ></label>
         <div className="flex flex-row p-4 w-52 min-h-full bg-base-200 pt-20">
           {/* Sidebar content here */}
-          <NavLinks placed_in="sidebar" />
-        </div>
-        <div className="self-end">
-          <AuthButton />
+          <NavLinks placedIn="sidebar" />
         </div>
       </div>
     </div>

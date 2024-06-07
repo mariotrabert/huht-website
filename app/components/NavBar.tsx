@@ -1,42 +1,37 @@
 "use client";
 
 import logo from "@/public/2011VDWZuechterLogo200.png";
+import { Box, Flex, Heading, Separator } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
-import AuthButton from "./AuthButton";
+import UserDropdown from "./UserDropdown";
 
 const NavBar = () => {
-
   return (
-    <nav className="navbar bg-primary text-primary-content z-[50] lg:sticky lg:top-0">
-      <div className="flex-none lg:hidden">
-        <label htmlFor="sidebar" aria-label="open sidebar" className="btn btn-square btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </label>
-      </div> 
-      <div className="navbar-start">
-        
-        <Link href="/" className="btn btn-ghost text-xl">
-          <Image
-            src={logo}
-            alt="DW Logo"
-            className="w-auto h-4/5 max-h-24 mr-3"
-          ></Image>
-          Von der Huht
-        </Link>
-      </div>
+    <Box>
+      <Flex gap="5" mx="5" my="3">
+        {/* First column - Logo and heading */}
+        <Flex gap="5" align="center">
+          <Link href="/">
+            <Image src={logo} alt="DW Logo" className="w-auto h-16" />
+          </Link>
+          <Link href="/">
+            <Heading>Von der Huht</Heading>
+          </Link>
+        </Flex>
+        <Separator size="3" orientation="vertical" />
 
-      <div className="navbar-center hidden lg:flex">
-        <NavLinks placed_in="navbar"/>
-      </div>
+        {/* Middle column - nav links */}
+        <Box asChild>
+          <NavLinks placedIn="navbar" />
+        </Box>
 
-      <div className="navbar-end">
-        <div className="max-lg:hidden">
-          <AuthButton />
-        </div>
-      </div>
-    </nav>
+        {/* Right column - login button */}
+        <UserDropdown />
+      </Flex>
+      <Separator size="4" />
+    </Box>
   );
 };
 
