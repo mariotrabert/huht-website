@@ -1,9 +1,10 @@
-import '@radix-ui/themes/styles.css';
 import { Theme } from "@radix-ui/themes";
+import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AuthProvider from "./api/auth/Provider";
-import SideBar from "./components/SideBar";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -19,12 +20,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html data-theme="huhtTheme">
+    <html>
       <body className={inter.variable}>
-        <Theme>
+        <Theme radius="full" accentColor="green" panelBackground="translucent">
           <AuthProvider>
-            <SideBar>{children}</SideBar>
+            {/* <SideBar>{children}</SideBar> */}
+            <NavBar />
+            {/* Page content here */}
+            <div id="content-wrapper" className="flex flex-col min-h-screen">
+              <div className="flex-grow px-12 py-5 sm:px-24 md:px-30 lg:px-40 lg:py-10">
+                {children}
+              </div>
+            </div>
+            <Footer />
           </AuthProvider>
+          {/* Modify theme using the ThemePanel */}
+          {/* <ThemePanel /> */}
         </Theme>
       </body>
     </html>
