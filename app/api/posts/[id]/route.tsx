@@ -1,12 +1,11 @@
 import { postSchema } from "@/app/validationSchemas";
 import prisma from "@/prisma/client";
-import { getServerSession } from "next-auth";
+import { auth } from "@/auth";
 import { NextRequest, NextResponse } from "next/server";
-import authOptions from "../../auth/authOptions";
 
 
 export async function PATCH(request: NextRequest, { params }: { params: { id: string }}) {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
   if (!session) return NextResponse.json({}, { status: 401 });
   
   const body = await request.json();
@@ -36,7 +35,7 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
 }
 
 export async function DELETE(request: NextRequest, { params }: { params: { id: string }}) {
-  const session = await getServerSession(authOptions);
+  const session = await auth()
   if (!session) return NextResponse.json({}, { status: 401 });
   const post = await prisma.post.findUnique({
     where: { id: parseInt(params.id) }

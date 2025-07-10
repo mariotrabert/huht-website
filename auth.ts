@@ -1,16 +1,17 @@
+import NextAuth from "next-auth";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import Google from "next-auth/providers/google";
 import prisma from "@/prisma/client";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-import { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
 
-const authOptions: NextAuthOptions = {
+export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [
-    GoogleProvider({
+    Google({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-      // WIP
+    // You can later re-enable credentials or email here
+    // WIP - this is from previous version
     // CredentialsProvider({
     //   // The name to display on the sign in form (e.g. 'Sign in with...')
     //   name: 'Credentials',
@@ -52,6 +53,5 @@ const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-};
-
-export default authOptions;
+  secret: process.env.AUTH_SECRET,
+});
