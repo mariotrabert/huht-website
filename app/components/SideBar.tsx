@@ -10,7 +10,7 @@ const SideBar: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <NavBar />
         {/* Page content here */}
         <div id="content-wrapper" className="flex flex-col min-h-screen">
-          <div className="flex-grow px-12 py-5 sm:px-24 md:px-30 lg:px-40 lg:py-10">
+          <div className="grow px-12 py-5 sm:px-24 md:px-30 lg:px-40 lg:py-10">
             {children}
           </div>
         </div>
