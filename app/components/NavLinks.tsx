@@ -27,7 +27,7 @@ const NavLinks = ({ placedIn }: { placedIn: "sidebar" | "navbar" | "" }) => {
       align="center"
     >
       {links.map((link) => (
-        <Link
+        <StyledLink 
           key={link.href}
           className={classNames({
             "text-xl nav-link": true,
@@ -35,8 +35,10 @@ const NavLinks = ({ placedIn }: { placedIn: "sidebar" | "navbar" | "" }) => {
           })}
           href={link.href}
         >
-          <StyledLink>{link.label}</StyledLink>
-        </Link>
+          {/* <StyledLink> */}
+            {link.label}
+          {/* </StyledLink> */}
+        </StyledLink>
       ))}
     </Flex>
   );

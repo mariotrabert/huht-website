@@ -18,7 +18,7 @@ const UserDropdown = () => {
   const { status, data: session } = useSession();
 
   return (
-    <>
+    <Flex align="center" justify="end">
       <Popover.Root>
         <Popover.Trigger>
           <Button variant="soft">
@@ -45,7 +45,7 @@ const UserDropdown = () => {
           <AuthButton status={status}/>
         </Popover.Content>
       </Popover.Root>
-    </>
+    </Flex>
   );
 };
 

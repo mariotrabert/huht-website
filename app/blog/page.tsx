@@ -1,5 +1,6 @@
 import Link from "next/link";
 import prisma from "@/prisma/client";
+import { Button } from "@radix-ui/themes";
 
 const BlogPage = async () => {
   const posts = await prisma.post.findMany();
@@ -8,7 +9,7 @@ const BlogPage = async () => {
     <section>
       <h1>Blog</h1>
       <Link href="/blog/new">
-        <button className="btn btn-primary mt-5">Neuer Beitrag</button>
+        <Button>Neuer Beitrag</Button>
       </Link>
       <ul>
         {posts.map(({ id, date, title, description }) => (

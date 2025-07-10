@@ -7,6 +7,9 @@ description: 'Im Mai 2019 werden im R-Wurf Welpen erwartet aus > Quina von der H
 # Aktueller Zwingervorgang R-Wurf
 
 Im März 2019 wurde meine Hündin > Quina von der Huht 17-098 mit dem Rüden > Titan vom Rittergut 12-334 belegt.
+
+![](https://www.huht.wachtelhunde.net/images/R-Wurf.jpg)  
+
 Der R-Wurf fiel am 11. Mai 2019, vier Rüden und eine Hündin.
 
 Die 5 Welpen entwickelten sich von Beginn an prächtig.
@@ -24,3 +27,5 @@ Alle 5 Hunde sind ED frei, leider hat einer IOCH, ein Hund hat leichte HD (C), a
 Jetzt wünsche ich erstmal allen Hundeführern eine erfolgreiche Jagdsaison und viel Spaß mit ihrem Hunden.
 
 Auch unter Coronabedingungen konnten alle 5 zu einer Jugendprüfung zusammenkommen
+
+![](https://www.huht.wachtelhunde.net/images/JP-R-Wurf.jpg)

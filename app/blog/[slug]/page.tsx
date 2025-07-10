@@ -1,4 +1,5 @@
-import { getAllPostSlugs, getPostDataAsHTML } from '@/lib/posts'
+import { getPostDataAsHTML } from '@/lib/posts'
+import Link from 'next/link'
 
 type Props = {
   params: { slug: string }
@@ -36,6 +37,8 @@ export default async function Post({ params }: Props) {
         className='text-gray-600'
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
+      {/* TODO make button only visible when authenticated */}
+      <Link href={"/blog/edit/"+postData.title}><button className='btn btn-primary mt-5'>Seite bearbeiten</button></Link>
     </>
   )
 }
